@@ -40,11 +40,11 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
         RahmKota.setAttacks("Lichtschwert Angriff", "Militia Unterstützung", "Machtschub", "Machtschild");
         LeiaOrgana.setAttacks("Blaster Angriff", "Blaster Schnellfeuer", "Hoffnung", "Stimpacks");
         HanSolo.setAttacks("Blaster Angriff", "Genauigkeit", "Sprengsatz", "Scharfschützenschuss");
-        //Chewbacca.setAttacks();
+        Chewbacca.setAttacks("Armbrust Schuss", "Armbrust Multi-Schuss", "Wookie Wut", "Granate");
         BobaFett.setAttacks("Blaster Angriff", "Flammenwerfer", "Handgelenkrakete", "Detpack");
-        //Stormtrooper.setAttacks();
-        //RebelSoldier.setAttacks();        
-        //MilitiaSoldier.setAttacks();
+        Stormtrooper.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");
+        RebelSoldier.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");        
+        MilitiaSoldier.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");
         //Character Setters STOP
         
         
