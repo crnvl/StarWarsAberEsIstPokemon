@@ -9,6 +9,8 @@ public class Character {
     private boolean forcesensitive = false;
     private double tempattackdamage = 0;
     private int finalattackdamage = 0; //Muss 0 sein, falls man sich heilt, dann darf man ja kein Schaden abziehen. UPDATE: Klappt wohl trotzdem nicht, huh. Egal, setze einfach den finalattackdamage bei dem Typen selber auf 0
+    private double hitchance = Math.random() * 100;
+    private String tier = "TIER1";
     
     private String attack1 = "Melee";
     private String attack2 = "Kick";
@@ -62,11 +64,15 @@ public class Character {
     public int getBurnCounter() {
         return BurnCounter;
     }
+    
+    public String getTier() {
+        return tier;
+    }
     //Getter STOP
     
     
     public void printStats() { //Printet Character Stats
-        System.out.println("\nName: " + getName() + "\nLife: " + getLife() + "\nDamage: " + getDamage() + "\nAttack speed: " + getAttackSpeed() + "\nForce sensitive: " + getForceSensitive());
+        System.out.println("\nName: " + getName() + "\nCharacter Tier: " + getTier() + "\nLife: " + getLife() + "\nDamage: " + getDamage() + "\nAttack speed: " + getAttackSpeed() + "\nForce sensitive: " + getForceSensitive());
     }
     
     
@@ -75,9 +81,10 @@ public class Character {
     public void setStats(String name, String tier, boolean forcesensitive) {
         this.name = name;
         this.forcesensitive = forcesensitive;
+        this.tier = tier;
         if(tier.equals("TIER1")) {
-            this.life = 0 + (int)(Math.random() * ((1100 - 0) + 1)); //Danke für die Random Idee, Jan! :D
-            this.damage = 0 + (int)(Math.random() * ((250 - 0) + 1));
+            this.life = 500 + (int)(Math.random() * ((1100 - 500) + 1)); //Danke für die Random Idee, Jan! :D
+            this.damage = 100 + (int)(Math.random() * ((250 - 100) + 1));
             this.attackspeed = 1.0 + (Math.random() * (1.35-1.0));
         }
         else if(tier.equals("TIER2")) {
@@ -127,11 +134,11 @@ public class Character {
 
 
     public void Attacks() {
+        hitchance = Math.random() * 100; //generiert random hitchance pro Angriff
         System.out.println(getName() + " benutzt " + getAttacks()[attack-1]);
         if(getAttacks()[attack-1].equals("Lichtschwert Angriff")) { //Again, muss -1 sein, da es ein Array ist. Wird pro Runde neu generiert, da Attacks() in der Schleife neu ausgeführt wird
             type = "Damage";
-            double rndm = 0.8 + (Math.random() * (1.2-0.8));
-            tempattackdamage = damage * rndm;
+            tempattackdamage = damage * 1.0;
             finalattackdamage = (int)tempattackdamage;
         }
         else if(getAttacks()[attack-1].equals("Stimpacks") || getAttacks()[attack-1].equals("Machtheilung")) {
@@ -151,8 +158,30 @@ public class Character {
         }
         else { //Ist immer nur mal 1
             type = "Damage";
-            tempattackdamage = damage * 1.0;
+            double rndm = 0.8 + (Math.random() * (1.2-0.8));
+            tempattackdamage = damage * rndm;
             finalattackdamage = (int)tempattackdamage;
         }
+        
+        switch(tier) { //je nach Tier ist die chance nicht zu hitten größer
+            case "TIER1":
+                if(hitchance<20 && type == "Damage") {
+                    finalattackdamage = 0;
+                    System.out.println("\nDie Attacke von " + getName() + " ging daneben!");
+                }
+                break;
+            case "TIER2":
+                if(hitchance<15 && type == "Damage") {
+                    finalattackdamage = 0;
+                    System.out.println("\nDie Attacke von " + getName() + " ging daneben!");
+                }
+                break;
+            case "TIER3":
+                if(hitchance<10 && type == "Damage") {
+                    finalattackdamage = 0;
+                    System.out.println("\nDie Attacke von " + getName() + " ging daneben!");
+                }
+                break;
+            }
     }
 }
