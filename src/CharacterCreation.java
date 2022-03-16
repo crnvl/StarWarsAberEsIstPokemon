@@ -1,8 +1,10 @@
+package src;
+
 import java.util.Scanner;
 
 public class CharacterCreation { //Our work is never over. ~Daft Punk
     public void setPlayers(int p1, int p2) {
-        //Character Creation START
+        //src.Character Creation START
         Character player1 = new Character();
         Character player2 = new Character();
         
@@ -17,11 +19,11 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
         Character Stormtrooper = new Character();
         Character RebelSoldier = new Character();
         Character MilitiaSoldier = new Character();
-        //Character Creation STOP
+        //src.Character Creation STOP
         
         
         
-        //Character Setters START
+        //src.Character Setters START
         LukeSkywalker.setStats("Luke Skywalker", "TIER3", true); //Name, TIER, forcesensitive
         DarthVader.setStats("Darth Vader", "TIER3", true);
         Palpatine.setStats("Emperor Palpatine", "TIER3", true);
@@ -45,7 +47,7 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
         Stormtrooper.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");
         RebelSoldier.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");        
         MilitiaSoldier.setAttacks("Blaster Angriff", "Thermal Detonator", "Schlag", "Kick");
-        //Character Setters STOP
+        //src.Character Setters STOP
         
         
         
@@ -144,7 +146,7 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
                         System.out.println((i+1) + ") " + player1.getAttacks()[i]); //Printet z.b. 1) Melee
                     }
                     p1attack = attackinput.nextInt();
-                    player1.setCurrentAttack(p1attack); //Geht wieder rüber zu class "Character", setzt vorherige input Variable "p1attack" ein.
+                    player1.setCurrentAttack(p1attack); //Geht wieder rüber zu class "src.Character", setzt vorherige input Variable "p1attack" ein.
                     player1.Attacks(); //setzt die damage values
                     
                     
@@ -168,7 +170,7 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
                         System.out.println((i+1) + ") " + player2.getAttacks()[i]); //Printet z.b. 1) Melee
                     }
                     p2attack = attackinput.nextInt();
-                    player2.setCurrentAttack(p2attack); //Geht wieder rüber zu class "Character", setzt vorherige input Variable "p2attack" ein.
+                    player2.setCurrentAttack(p2attack); //Geht wieder rüber zu class "src.Character", setzt vorherige input Variable "p2attack" ein.
                     player2.Attacks(); //setzt die damage values
                     
                     
@@ -245,10 +247,10 @@ public class CharacterCreation { //Our work is never over. ~Daft Punk
                         System.out.println("\n" + input1.getName() + " ist für die nächste Runde geschützt.");
                 }
                 else {
-                        if(input1.getFinalAttackDamage()>input1.getDamage()) { //Falls es mehr Schaden macht, als dein Character kann (dank der Attacke)
+                        if(input1.getFinalAttackDamage()>input1.getDamage()) { //Falls es mehr Schaden macht, als dein src.Character kann (dank der Attacke)
                         System.out.println("\n" + input1.getName() + " greift " + input2.getName() + " an und fügt " + input1.getFinalAttackDamage() + " Schaden hinzu, " + (input1.getFinalAttackDamage()-input1.getDamage()) + " Schaden mehr als es sollte. " + input2.getName() + " hat noch " + input2.getLife() + " Leben übrig.");
                         }
-                        else { //Falls es weniger Schaden macht, als dein Character kann ("dank" der Attacke)
+                        else { //Falls es weniger Schaden macht, als dein src.Character kann ("dank" der Attacke)
                         System.out.println("\n" + input1.getName() + " greift " + input2.getName() + " an und fügt " + input1.getFinalAttackDamage() + " Schaden hinzu, " + (input1.getDamage()-input1.getFinalAttackDamage()) + " Schaden weniger als es sollte. " + input2.getName() + " hat noch " + input2.getLife() + " Leben übrig.");
                         }
                     }

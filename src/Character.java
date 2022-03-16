@@ -1,3 +1,5 @@
+package src;
+
 import java.lang.Math;
 
 public class Character {
@@ -71,8 +73,8 @@ public class Character {
     //Getter STOP
     
     
-    public void printStats() { //Printet Character Stats
-        System.out.println("\nName: " + getName() + "\nCharacter Tier: " + getTier() + "\nLife: " + getLife() + "\nDamage: " + getDamage() + "\nAttack speed: " + getAttackSpeed() + "\nForce sensitive: " + getForceSensitive());
+    public void printStats() { //Printet src.Character Stats
+        System.out.println("\nName: " + getName() + "\nsrc.Character Tier: " + getTier() + "\nLife: " + getLife() + "\nDamage: " + getDamage() + "\nAttack speed: " + getAttackSpeed() + "\nForce sensitive: " + getForceSensitive());
     }
     
     
